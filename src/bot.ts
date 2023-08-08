@@ -37,7 +37,7 @@ bot.on("message", replyWithIntro);
 // Start the server
 if (process.env.NODE_ENV === "production") {
   fastify.post("/secretPath", webhookCallback(bot, "fastify"));
-  const PORT = Number(process.env.PORT ?? 3001);
+  const PORT = Number(process.env.PORT ?? 3000);
   fastify.listen({ port: PORT });
   bot.api.setWebhook(process.env.CYCLIC_URL as string).then((res) => {
     console.log(`status`, res);
